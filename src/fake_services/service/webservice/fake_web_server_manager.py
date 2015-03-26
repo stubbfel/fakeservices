@@ -16,7 +16,7 @@ class FakeWebServerManager:
 
         cgi_path = request_handle_script_path
         if cgi_path is None:
-            cgi_path = pkgutil.get_loader("service.webservice.file_content_response").path
+            cgi_path = pkgutil.get_loader("fake_services.service.webservice.file_content_response").path
             newPath = os.path.basename(cgi_path)
             if not os.path.exists(newPath):
                 shutil.copyfile(cgi_path, newPath)
