@@ -3,7 +3,7 @@ __author__ = 'dev'
 import os
 import re
 import urllib.parse
-from http.server import CGIHTTPRequestHandler
+from http.server import SimpleHTTPRequestHandler
 
 HEADERS_HOST_PARAMETER_KEY_NAME = "Host"
 REQUEST_LINE_ENCODING = "iso-8859-1"
@@ -12,15 +12,15 @@ HOST_PATTERN_KEY_NAME = "host_pattern"
 RESPONSE_CONTENT_PATH_KEY_NAME = "response_content_path"
 
 
-class FakeHTTPRequestHandler(CGIHTTPRequestHandler):
+class FakeHTTPRequestHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         self.__set_path_setting()
-        CGIHTTPRequestHandler.do_GET(self)
+        SimpleHTTPRequestHandler.do_GET(self)
 
     def do_HEAD(self):
         self.__set_path_setting()
-        CGIHTTPRequestHandler.do_HEAD(self)
+        SimpleHTTPRequestHandler.do_HEAD(self)
 
     def do_POST(self):
         self.command = "GET"
@@ -35,17 +35,7 @@ class FakeHTTPRequestHandler(CGIHTTPRequestHandler):
                 response_content_path = self.__get_response_content_path(request_config)
 
         if response_content_path is not None:
-            self.path = self.server.request_handle_script_path
-            parent_path = os.path.join(os.path.sep, os.path.dirname(self.path))
-            if parent_path not in self.cgi_directories:
-                self.cgi_directories.append(parent_path)
-
-            request_data = {
-                RESPONSE_PATH_PARAMETER_KEY_NAME: response_content_path
-            }
-
-            url_parameter = urllib.parse.urlencode(request_data)
-            self.path = self.path + "?" + url_parameter
+            self.path = response_content_path
         else:
             self.path = "/404"
 

@@ -1,9 +1,0 @@
-{
-  "":
-  {
-    "host_pattern": "10.0.0.1",
-    "path_pattern": "index.php",
-    "protocol_pattern": "http",
-    "response_content_path": "cgi-bin/test.html"
-  }
-}
