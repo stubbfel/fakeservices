@@ -3,7 +3,9 @@ setup.py
 src/__init__.py
 src/fake_services/__init__.py
 src/fake_services/service/__init__.py
+src/fake_services/service/fake_server_manager.py
 src/fake_services/service/networkservice/__init__.py
+src/fake_services/service/networkservice/fake_dns_server_manager.py
 src/fake_services/service/webservice/__init__.py
 src/fake_services/service/webservice/fake_http_request_handler.py
 src/fake_services/service/webservice/fake_web_server.py

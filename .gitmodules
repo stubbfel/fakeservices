@@ -1,0 +1,3 @@
+[submodule "3rdLib/fakedns"]
+	path = 3rdLib/fakedns
+	url = git@github.com:pathes/fakedns.git
