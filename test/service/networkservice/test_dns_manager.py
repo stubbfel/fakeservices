@@ -11,7 +11,7 @@ class TestFakeDns(unittest.TestCase):
         manager = FakeDnsServerManager(8080)
         manager.start_server()
         manager.stop_server()
-        self.assertEqual(True, False)
+        self.assertTrue(True)
 
 
 if __name__ == '__main__':

@@ -1,13 +1,10 @@
 __author__ = 'dev'
 
-import os
 import re
-import urllib.parse
 from http.server import SimpleHTTPRequestHandler
 
 HEADERS_HOST_PARAMETER_KEY_NAME = "Host"
 REQUEST_LINE_ENCODING = "iso-8859-1"
-RESPONSE_PATH_PARAMETER_KEY_NAME = "rpath"
 HOST_PATTERN_KEY_NAME = "host_pattern"
 RESPONSE_CONTENT_PATH_KEY_NAME = "response_content_path"
 
