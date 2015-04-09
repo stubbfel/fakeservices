@@ -1,3 +1,6 @@
 [submodule "3rdLib/fakedns"]
 	path = 3rdLib/fakedns
 	url = git@github.com:pathes/fakedns.git
+[submodule "3rdLib/pypcapfile"]
+	path = 3rdLib/pypcapfile
+	url = https://github.com/kisom/pypcapfile.git
